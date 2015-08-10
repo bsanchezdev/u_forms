@@ -1,0 +1,25 @@
+<?php
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ * Description of u_div
+ *
+ * @author nocturnus
+ */
+class u_input extends u_ {
+    
+       public function crear($param=null) 
+{
+                //   <input type = "text" name = "" value = "1111" size = "12" />
+        $this->code="<input ".parent::attribs($param)." />";
+        return $this;
+}
+
+
+
+}
