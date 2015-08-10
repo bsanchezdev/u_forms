@@ -13,12 +13,17 @@
  */
 class u_ {
     
+    protected function set_mi_id($mi_id)
+    {
+        $this->mi_id=$mi_id;
+    }
     public function c($param,$id=null) {
         
         require_once 'u_'.$param.".php";
         $objeto="u_".$param;
         $elementos["$param"][$id]=new $objeto();
         $this->elementos=$elementos;
+        $elementos["$param"][$id]->set_mi_id($id);
         return $elementos["$param"][$id];
     }
     
