@@ -14,7 +14,11 @@
 class u_select extends u_ {
     protected $mi_id;
     public function crear($param=null) 
-{
+{   
+     if(!isset($param["id"])):
+        $param["id"]=$this->mi_id;
+     endif;
+
         $this->mi_id=@$param["id"];
         $this->code="<select ".parent::attribs($param)." >%urnusdev%</select>";
         return $this;

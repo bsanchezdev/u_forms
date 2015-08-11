@@ -13,7 +13,7 @@
  */
 class u_textarea extends u_ {
     public function crear($param=null) 
-{
+{       $param["id"]=$this->mi_id;
         $this->code="<textarea ".parent::attribs($param)." >%urnusdev%</textarea>";
         return $this;
 }

@@ -14,7 +14,7 @@
 class u_div extends u_ {
     
        public function crear($param=null) 
-{
+{       $param["id"]=$this->mi_id;
         $this->code="<div ".parent::attribs($param)." >%urnusdev%</div>";
         return $this;
 }

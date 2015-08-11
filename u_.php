@@ -13,12 +13,24 @@
  */
 class u_ {
     
+   public function load_jqueryCDN() {
+        $CI=  &get_instance();
+        ?>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <?php
+    }
+    public function load_jquery($jquery="jquery-1.11.3.min") {
+        $CI=  &get_instance();
+        $CI->load->view("jquery/$jquery".".php");
+    }
+    
     protected function set_mi_id($mi_id)
     {
         $this->mi_id=$mi_id;
     }
     public function c($param,$id=null) {
-        
+        $this->mi_id=$id;
         require_once 'u_'.$param.".php";
         $objeto="u_".$param;
         $elementos["$param"][$id]=new $objeto();
@@ -135,7 +147,7 @@ public function text_box($id="",$texto_label="",$val="",$render=false,$params=nu
             
         endif;
         
-if(!isset($mi_input)) $mi_input    =   $this->c("input", "u_input")          ;
+if(!isset($mi_input)) $mi_input    =   $this->c("input", $id);//"u_input")          ;
   return  $this->box($texto_label,$mi_input->crear($params["input"])->codigo(),$render,$params,$icono);
 }
 

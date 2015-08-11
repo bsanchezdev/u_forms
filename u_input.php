@@ -15,8 +15,7 @@ class u_input extends u_ {
     
        public function crear($param=null) 
 {
-      $param["id"]=$this->mi_id;
-                //   <input type = "text" name = "" value = "1111" size = "12" />
+        $param["id"]=$this->mi_id;
         $this->code="<input ".parent::attribs($param)." />";
         return $this;
 }

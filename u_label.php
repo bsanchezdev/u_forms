@@ -14,7 +14,7 @@
 class u_label extends u_ {
     
        public function crear($param=null) 
-{
+{       $param["id"]=$this->mi_id;
         $this->code="<label ".parent::attribs($param)." >%urnusdev%</label>";
         return $this;
 }
