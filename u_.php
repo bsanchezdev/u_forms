@@ -79,6 +79,15 @@ public function codigo()
     return str_replace("%urnusdev%", "", $this->code);
 }
 
+public function render_buffer() {
+    foreach ($this->elementos as $id_elemento => $elemento):
+        foreach ($elemento as $key => $value):
+        echo $value[$id_elemento]->code;
+        $k=$key;
+        endforeach;
+    endforeach;
+}
+
 
 /* prefabricados */
 public function box($texto_label="",$contenido="",$render=false,$params=null,$icono=false)
@@ -216,44 +225,6 @@ else:
 return $select->codigo().$select->set_val($set_val);
 endif;
 }
-/*
-public function text_box_($id="",$texto_label="",$val="",$render=false,$params=null)
-{
-    $default=array(
-        "label"=>array("class"=>"control-label col-md-2 col-sm-12 col-xs-12"),
-        "input"=>array("class"=>"form-control","value"=>$val,"id"=>$id,"name"=>$id),
-        "span"=>array("class"=>"fa fa-user form-control-feedback right")
-        );
-    if(!isset($params)): 
-        $params=$default;
-        else: 
-        
-        endif;
-if(!isset($mi_div))   $mi_div      =   $this->c("div", "u_div_form-group")   ;
-if(!isset($mi_div_a)) $mi_div_a    =   $this->c("div", "u_div_contendor")    ;
-if(!isset($mi_label)) $mi_label    =   $this->c("label", "u_label_text-box") ;
-if(!isset($mi_input)) $mi_input    =   $this->c("input", "u_input")          ;
-if(!isset($mi_span))  $mi_span     =   $this->c("span", "u_span")            ;
-   
-   
-    $mi_div->crear(array("class"=>"form-group"))
-                ->inserta(
-                        $mi_label->crear($params["label"])
-                        ->inserta($texto_label)->codigo().
-                        $mi_div_a->crear(array("class"=>"col-md-10 col-sm-12 col-xs-12"))->inserta
-                        (
-                                $mi_input->crear($params["input"])->codigo().
-                                $mi_span->crear($params["span"])->codigo()
-                        )->codigo()
-                        );
-    if($render):
-        $mi_div->render();
-    else:
-        return $mi_div->codigo();    
-    endif;
-}
-*/
-
 
 }
 
