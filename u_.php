@@ -27,7 +27,7 @@ class u_ {
         require_once 'u_'.$elemento.".php";
         $objeto="u_".$elemento;
         $elementos["$elemento"][$id]=new $objeto();
-        $this->elementos=$elementos;
+        $this->elementos[$id]=$elementos;
         $elementos["$elemento"][$id]->set_mi_id($id);
         if(count($params)>0):
             $elementos["$elemento"][$id]->crear($params);
