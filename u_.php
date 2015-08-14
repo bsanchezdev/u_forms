@@ -82,6 +82,7 @@ public function codigo()
 public function render_buffer() {
     foreach ($this->elementos as $id_elemento => $elemento):
         foreach ($elemento as $key => $value):
+        $value[$id_elemento]->code=  str_replace("%urnusdev%", "", $value[$id_elemento]->code);
         echo $value[$id_elemento]->code;
         $k=$key;
         endforeach;

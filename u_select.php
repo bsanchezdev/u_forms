@@ -24,6 +24,11 @@ class u_select extends u_ {
         return $this;
 }
 
+public function placeholder($texto) {
+     parent::inserta("<option disabled selected>".$texto."</option>");
+    return $this;
+    
+}
 public function option_add($val,$texto) {
     
     parent::inserta("<option value='$val'>".$texto."</option>");
@@ -34,6 +39,15 @@ public function option_add_A($val,$u_index,$texto) {
     parent::inserta("<option value='$val' u_index='$u_index'>".$texto."</option>");
     return $this;
 }        
+
+public function option_add_array($array=null) {
+    if(isset($array)):
+        foreach ($array as $val => $texto) {
+            parent::inserta("<option value='$val' u_index='$val'>".$texto."</option>"); 
+        }       
+    endif;    
+    return $this;
+}
 public function set_val($value_op,$render=false)      
 {
 if($render):
