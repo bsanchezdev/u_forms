@@ -5,6 +5,7 @@ Libreria para Codeigniter 3.
 Diseñada para crear elementos de formularios (input, select, div, button...)
 
 Ejemplo :
+
 <?php
 $in="input";$sel="select";$ta="textarea";
 $style="margin: 5px 0px;";
