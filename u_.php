@@ -22,14 +22,17 @@ class u_ {
     {
         $this->mi_id=$mi_id;
     }
-    public function c($param,$id=null) {
+    public function c($elemento,$id=null,$params=array()) {
         $this->mi_id=$id;
-        require_once 'u_'.$param.".php";
-        $objeto="u_".$param;
-        $elementos["$param"][$id]=new $objeto();
+        require_once 'u_'.$elemento.".php";
+        $objeto="u_".$elemento;
+        $elementos["$elemento"][$id]=new $objeto();
         $this->elementos=$elementos;
-        $elementos["$param"][$id]->set_mi_id($id);
-        return $elementos["$param"][$id];
+        $elementos["$elemento"][$id]->set_mi_id($id);
+        if(count($params)>0):
+            $elementos["$elemento"][$id]->crear($params);
+        endif;
+        return $elementos["$elemento"][$id];
     }
     
     protected function attribs($param=null) {
