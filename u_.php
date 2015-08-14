@@ -4,7 +4,8 @@
  *
  * @author Benjamin Sanchez Cardenas
  */
-class u_ {
+include "u_encode.php";
+class u_ extends u_encode{
     
    public function load_jqueryCDN() {
         $CI=  &get_instance();
@@ -89,6 +90,8 @@ public function render_buffer() {
     endforeach;
 }
 
+public function clear_buffer() 
+{unset($this->elementos); return $this;}
 
 /* prefabricados */
 public function box($texto_label="",$contenido="",$render=false,$params=null,$icono=false)
@@ -227,5 +230,24 @@ return $select->codigo().$select->set_val($set_val);
 endif;
 }
 
+
+//
+
+    protected function load_f($file=false) {
+     return   parent::load_file($file);
+    }
+    public function encode_file($file,$key="urnusdev") {
+     $data=   $this->load_f($file);
+     $data = parent::encode($data, $key,$file);
+     return $data;
+    }
+    
+    public function load($file,$key="urnusdev") {
+     $data=   $this->load_f($file);
+     $data = parent::decode($data, $key);
+     return $data;
+    }
+    
+    
 }
 
